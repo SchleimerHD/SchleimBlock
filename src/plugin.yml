@@ -1,0 +1,9 @@
+name: SkyBlockReloaded
+author: Schleimer
+version: 1.0.0
+main: de.schleimer.skyblockre.Main
+commands:
+  island:
+    aliases:
+      - is
+  spawn:
