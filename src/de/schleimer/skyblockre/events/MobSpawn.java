@@ -10,7 +10,7 @@ public class MobSpawn implements Listener {
     @EventHandler
     public void onMobSpawn(EntitySpawnEvent e){
         FileConfiguration config = Main.getPlugin().getConfig();
-        if (e.getLocation().getWorld().getName() == config.getString("Spawn.World") ){
+        if (e.getLocation().getWorld().getName().equals(config.getString("Spawn.World")) ){
             e.setCancelled(true);
         }
     }
