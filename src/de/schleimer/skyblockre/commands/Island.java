@@ -29,16 +29,20 @@ public class Island implements CommandExecutor {
 
             }
         }
+        else{
+            //TODO Consol Message
+        }
         return false;
     }
     private void noArgs(Player p){
         String world = WorldAPI.worldNameFormat(p, World.Environment.NORMAL);
         if (WorldAPI.worldExist(world)) {
+            WorldAPI.loadWorld(world, World.Environment.NORMAL);
+            WorldAPI.teleportToPlayerIsland(p,p);
+        } else {
+
             WorldAPI.createWorld(p, World.Environment.NORMAL);
             WorldAPI.teleportToPlayerIsland(p, p);
-        } else {
-            WorldAPI.createWorld(p, World.Environment.NORMAL);
-            WorldAPI.teleportToPlayerIsland(p,p);
 
         }
     }

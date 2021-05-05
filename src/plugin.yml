@@ -8,3 +8,4 @@ commands:
       - is
   spawn:
   setspawn:
+  template:

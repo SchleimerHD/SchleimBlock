@@ -22,6 +22,9 @@ public class BlockBreackPlace implements Listener {
         else if (p.getWorld().getName().contains(p.getUniqueId().toString())){
             e.setCancelled(false);
         }
+        else {
+            e.setCancelled(true);
+        }
 
     }
     @EventHandler
@@ -34,6 +37,9 @@ public class BlockBreackPlace implements Listener {
         }
         else if (p.getWorld().getName().contains(p.getUniqueId().toString())){
             e.setCancelled(false);
+        }
+        else {
+            e.setCancelled(true);
         }
     }
 }

@@ -7,17 +7,25 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class JoinLeave implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
-        if (p.hasPlayedBefore()){
-            Bukkit.getServer().broadcastMessage("NotFirstJoin");
-        }
-        else{
+        e.setJoinMessage("§2§l+ " + p.getName());
+        if (!p.hasPlayedBefore()){
             SpawnAPI.teleportToSpawn(p);
-            Bukkit.getServer().broadcastMessage("FirstJoin");
+        }
+
+    }
+    @EventHandler
+    public void onLeave(PlayerQuitEvent e) {
+        Player p = e.getPlayer();
+        e.setQuitMessage("§4§l- " + p.getName());
+        if (!p.hasPlayedBefore()){
+            SpawnAPI.teleportToSpawn(p);
+
         }
 
     }
