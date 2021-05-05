@@ -16,9 +16,6 @@ public class Island implements CommandExecutor {
             if(args.length==0){
                 noArgs(p);
             }
-            else  if(args.length==1){
-
-            }
             else  if(args.length==2){
                 if (args[0].equalsIgnoreCase("tp")){
                     Player t = Bukkit.getPlayer(args[1]);
@@ -30,7 +27,7 @@ public class Island implements CommandExecutor {
             }
         }
         else{
-            //TODO Consol Message
+            Bukkit.getConsoleSender().sendMessage("Nur Spieler können den Island befehl nutzen");
         }
         return false;
     }
@@ -38,12 +35,11 @@ public class Island implements CommandExecutor {
         String world = WorldAPI.worldNameFormat(p, World.Environment.NORMAL);
         if (WorldAPI.worldExist(world)) {
             WorldAPI.loadWorld(world, World.Environment.NORMAL);
-            WorldAPI.teleportToPlayerIsland(p,p);
         } else {
 
             WorldAPI.createWorld(p, World.Environment.NORMAL);
-            WorldAPI.teleportToPlayerIsland(p, p);
 
         }
+        WorldAPI.teleportToPlayerIsland(p,p);
     }
 }

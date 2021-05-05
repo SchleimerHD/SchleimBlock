@@ -7,8 +7,6 @@ import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import java.io.File;
-
 public class SpawnAPI {
     public static void teleportToSpawn(Player player){
         FileConfiguration config = Main.getPlugin().getConfig();
@@ -20,7 +18,6 @@ public class SpawnAPI {
         float Pitch = (float) config.getDouble("Spawn.Pitch");
         Location location = new Location(world,X,Y,Z,Yaw,Pitch);
         player.teleport(location);
-        return;
     }
     public  static void setSpawn(Player p){
         FileConfiguration config = Main.getPlugin().getConfig();

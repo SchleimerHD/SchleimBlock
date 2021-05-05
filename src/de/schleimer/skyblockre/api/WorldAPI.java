@@ -2,7 +2,6 @@ package de.schleimer.skyblockre.api;
 
 import org.bukkit.*;
 import org.bukkit.entity.Player;
-import org.bukkit.generator.ChunkGenerator;
 
 import java.io.File;
 
@@ -35,17 +34,13 @@ public class WorldAPI {
     public static void loadWorld(String s, World.Environment environment){
         Generator n = new Generator();                                                          //Creates the Generator
         WorldCreator creator = new WorldCreator(s).environment(environment).generator(n);       //Creat the WorldCreator
-        World world = Bukkit.createWorld(creator);                                              //Creates the World
+        Bukkit.createWorld(creator);                                              //Creates the World
 
 
     }
     public static String worldNameFormat (Player p, World.Environment environment){
         return environment.toString()+"_"+p.getUniqueId();
 
-    }
-    public static void teleportToPlayerIsland(Player send,String playerIsland){
-        Player p =Bukkit.getPlayer(playerIsland);
-        teleportToPlayerIsland(send , p);
     }
     public static void teleportToPlayerIsland(Player send,Player playerIsland){
         if (worldExist(worldNameFormat(playerIsland, World.Environment.NORMAL))){

@@ -4,8 +4,7 @@ import de.schleimer.skyblockre.api.Generator;
 import de.schleimer.skyblockre.commands.Island;
 import de.schleimer.skyblockre.commands.SetSpawn;
 import de.schleimer.skyblockre.commands.Spawn;
-import de.schleimer.skyblockre.commands.Template;
-import de.schleimer.skyblockre.events.BlockBreackPlace;
+import de.schleimer.skyblockre.events.BlockBreakPlace;
 import de.schleimer.skyblockre.events.JoinLeave;
 import de.schleimer.skyblockre.events.MobSpawn;
 import de.schleimer.skyblockre.events.portal;
@@ -35,19 +34,17 @@ public class Main extends JavaPlugin {
     public  void onDisable(){
 
     }
-    public boolean initCommands(){
+    public void initCommands(){
         getCommand("is").setExecutor(new Island());
         getCommand("spawn").setExecutor(new Spawn());
         getCommand("setspawn").setExecutor(new SetSpawn());
-        return true;
     }
-    public boolean registerEvents(){
+    public void registerEvents(){
         PluginManager manager = Bukkit.getPluginManager();
         manager.registerEvents(new portal(),this);
         manager.registerEvents(new JoinLeave(),this);
-        manager.registerEvents(new BlockBreackPlace(),this);
+        manager.registerEvents(new BlockBreakPlace(),this);
         manager.registerEvents(new MobSpawn(),this);
-        return true;
     }
 
     @Override
