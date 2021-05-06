@@ -33,9 +33,9 @@ public class Island implements CommandExecutor {
     }
     private void noArgs(Player p){
         String world = WorldAPI.worldNameFormat(p, World.Environment.NORMAL);
-        if (WorldAPI.worldExist(world)) {
+        if (WorldAPI.worldExist(world) && Bukkit.getWorld(world) != null) {
             WorldAPI.loadWorld(world, World.Environment.NORMAL);
-        } else {
+        } else if (!WorldAPI.worldExist(world)){
 
             WorldAPI.createWorld(p, World.Environment.NORMAL);
 

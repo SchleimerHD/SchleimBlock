@@ -3,7 +3,6 @@ package de.schleimer.skyblockre.api;
 import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

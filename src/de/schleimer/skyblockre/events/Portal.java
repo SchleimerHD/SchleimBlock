@@ -10,7 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerPortalEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
-public class portal implements Listener {
+public class Portal implements Listener {
     @EventHandler
     public void onPlayerPortal (PlayerPortalEvent e){
         if (e.getCause() == PlayerTeleportEvent.TeleportCause.NETHER_PORTAL){
