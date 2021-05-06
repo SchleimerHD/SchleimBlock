@@ -18,10 +18,12 @@ public class Island implements CommandExecutor {
             }
             else  if(args.length==2){
                 if (args[0].equalsIgnoreCase("tp")){
-                    Player t = Bukkit.getPlayer(args[1]);
+                    /*
                     String S = WorldAPI.worldNameFormat(t, World.Environment.NORMAL);
                     WorldAPI.worldExist(S);
                     p.teleport(Bukkit.getWorld(S).getSpawnLocation());
+
+                     */
                 }
             }
         }

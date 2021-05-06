@@ -20,7 +20,7 @@ public class JoinLeave implements Listener {
     @EventHandler
     public void onLeave(PlayerQuitEvent e) {
         Player p = e.getPlayer();
-        e.setQuitMessage("§4§l- " + p.getName());
+        e.setQuitMessage("- " + p.getName());
         if (!p.hasPlayedBefore()){
             SpawnAPI.teleportToSpawn(p);
 
