@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Generator extends ChunkGenerator {
+
     @Override
     public List<BlockPopulator> getDefaultPopulators(World world) {
         return new ArrayList<>();

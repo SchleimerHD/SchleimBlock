@@ -10,20 +10,19 @@ import org.bukkit.entity.Player;
 
 public class Island implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender Sender, Command cmd, String label, String[] args) {
-        if (Sender instanceof Player){
-            Player p = (Player) Sender;
+    public boolean onCommand(CommandSender s, Command cmd, String label, String[] args) {
+        if(s instanceof Player) {
+            Player p = (Player)s;
             if(args.length==0){
                 noArgs(p);
             }
             else  if(args.length==2){
                 if (args[0].equalsIgnoreCase("tp")){
                     Player t = Bukkit.getPlayer(args[1]);
-                    String s = WorldAPI.worldNameFormat(t, World.Environment.NORMAL);
-                    WorldAPI.worldExist(s);
-                    p.teleport(Bukkit.getWorld(s).getSpawnLocation());
+                    String S = WorldAPI.worldNameFormat(t, World.Environment.NORMAL);
+                    WorldAPI.worldExist(S);
+                    p.teleport(Bukkit.getWorld(S).getSpawnLocation());
                 }
-
             }
         }
         else{
@@ -31,6 +30,7 @@ public class Island implements CommandExecutor {
         }
         return false;
     }
+
     private void noArgs(Player p){
         String world = WorldAPI.worldNameFormat(p, World.Environment.NORMAL);
         if (WorldAPI.worldExist(world) && Bukkit.getWorld(world) != null) {

@@ -8,6 +8,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 public class SpawnAPI {
+
     public static void teleportToSpawn(Player player){
         FileConfiguration config = Main.getPlugin().getConfig();
         World world = Bukkit.getWorld(config.getString("Spawn.World"));
@@ -19,6 +20,7 @@ public class SpawnAPI {
         Location location = new Location(world,X,Y,Z,Yaw,Pitch);
         player.teleport(location);
     }
+
     public  static void setSpawn(Player p){
         FileConfiguration config = Main.getPlugin().getConfig();
         config.set("Spawn.World",p.getWorld().getName());
