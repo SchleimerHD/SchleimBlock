@@ -1,6 +1,8 @@
 package de.schleimer.skyblockre.events;
 
+import de.schleimer.skyblockre.api.WorldAPI;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,7 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerPortalEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
-public class Portal implements Listener {
+public class portal implements Listener {
     @EventHandler
     public void onPlayerPortal (PlayerPortalEvent e){
         if (e.getCause() == PlayerTeleportEvent.TeleportCause.NETHER_PORTAL){
@@ -25,4 +27,5 @@ public class Portal implements Listener {
             }
         }
     }
+
 }
