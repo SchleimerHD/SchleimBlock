@@ -14,45 +14,35 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 
 public class Main extends JavaPlugin {
-
-    private static Main plugin;
-    public static Main getPlugin(){
+    public static Main getPlugin() {
         return plugin;
     }
 
-    public void onEnable() {
+    public static void setPlugin(Main plugin) {
+        Main.plugin = plugin;
+    }
+
+    private static de.schleimer.skyblockre.Main plugin;
+
+
+    public void onEnable(){
         initCommands();
         registerEvents();
         plugin = this;
-        banner();
     }
-
-    public void onDisable() {
+    public  void onDisable(){
 
     }
-
-    public void initCommands() {
+    public void initCommands(){
         getCommand("is").setExecutor(new Island());
         getCommand("spawn").setExecutor(new Spawn());
         getCommand("setspawn").setExecutor(new SetSpawn());
     }
-
-    public void registerEvents() {
+    public void registerEvents(){
         PluginManager manager = Bukkit.getPluginManager();
-        //manager.registerEvents(new Portal(),this);
-        manager.registerEvents(new JoinLeave(), this);
-        manager.registerEvents(new BlockBreakPlace(), this);
-        manager.registerEvents(new MobSpawn(), this);
-    }
-
-    public void banner() {
-        Bukkit.getConsoleSender().sendMessage("");
-        Bukkit.getConsoleSender().sendMessage("░██████╗██╗░░██╗██╗░░░██╗██████╗░██╗░░░░░░█████╗░░█████╗░██╗░░██╗");
-        Bukkit.getConsoleSender().sendMessage("██╔════╝██║░██╔╝╚██╗░██╔╝██╔══██╗██║░░░░░██╔══██╗██╔══██╗██║░██╔╝");
-        Bukkit.getConsoleSender().sendMessage("╚█████╗░█████═╝░░╚████╔╝░██████╦╝██║░░░░░██║░░██║██║░░╚═╝█████═╝░");
-        Bukkit.getConsoleSender().sendMessage("░╚═══██╗██╔═██╗░░░╚██╔╝░░██╔══██╗██║░░░░░██║░░██║██║░░██╗██╔═██╗░");
-        Bukkit.getConsoleSender().sendMessage("██████╔╝██║░╚██╗░░░██║░░░██████╦╝███████╗╚█████╔╝╚█████╔╝██║░╚██╗");
-        Bukkit.getConsoleSender().sendMessage("╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═════╝░╚══════╝░╚════╝░░╚════╝░╚═╝░░╚═╝Reloaded");
+        manager.registerEvents(new JoinLeave(),this);
+        manager.registerEvents(new BlockBreakPlace(),this);
+        manager.registerEvents(new MobSpawn(),this);
     }
 
     @Override

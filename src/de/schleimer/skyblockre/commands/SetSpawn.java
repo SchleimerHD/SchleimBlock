@@ -1,5 +1,6 @@
 package de.schleimer.skyblockre.commands;
 
+import de.schleimer.skyblockre.api.SpawnAPI;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

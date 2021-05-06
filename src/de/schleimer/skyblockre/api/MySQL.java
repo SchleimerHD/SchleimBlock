@@ -10,11 +10,11 @@ import java.sql.SQLException;
 
 
 public class MySQL extends JDBC {
-    private String username;
-    private String password;
-    private String hostname;
-    private String database;
-    private int port;
+    private final String username;
+    private final String password;
+    private final String hostname;
+    private final String database;
+    private final int port;
     private Connection con;
 
     public MySQL(String host, int port,String database , String username , String password){
@@ -44,12 +44,7 @@ public class MySQL extends JDBC {
     }
 
     public boolean hasConnection(){
-        if(this.con != null){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return this.con != null;
     }
 
     public Connection getConnection(){
