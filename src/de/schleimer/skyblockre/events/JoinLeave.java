@@ -11,7 +11,7 @@ public class JoinLeave implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
-        e.setJoinMessage("§2§l+ " + p.getName());
+        e.setJoinMessage("§7+§a " +p.getName());
         if (!p.hasPlayedBefore()){
             SpawnAPI.teleportToSpawn(p);
         }
@@ -20,7 +20,7 @@ public class JoinLeave implements Listener {
     @EventHandler
     public void onLeave(PlayerQuitEvent e) {
         Player p = e.getPlayer();
-        e.setQuitMessage("- " + p.getName());
+        e.setQuitMessage("§7-§c " + p.getName());
         if (!p.hasPlayedBefore()){
             SpawnAPI.teleportToSpawn(p);
 

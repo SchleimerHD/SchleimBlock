@@ -1,13 +1,13 @@
 package de.schleimer.skyblockre;
 
 import de.schleimer.skyblockre.api.Generator;
+import de.schleimer.skyblockre.api.SpawnAPI;
 import de.schleimer.skyblockre.commands.Island;
 import de.schleimer.skyblockre.commands.SetSpawn;
 import de.schleimer.skyblockre.commands.Spawn;
-import de.schleimer.skyblockre.events.BlockBreakPlace;
-import de.schleimer.skyblockre.events.JoinLeave;
-import de.schleimer.skyblockre.events.MobSpawn;
+import de.schleimer.skyblockre.events.*;
 import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,10 +18,6 @@ public class Main extends JavaPlugin {
         return plugin;
     }
 
-    public static void setPlugin(Main plugin) {
-        Main.plugin = plugin;
-    }
-
     private static de.schleimer.skyblockre.Main plugin;
 
 
@@ -29,6 +25,9 @@ public class Main extends JavaPlugin {
         initCommands();
         registerEvents();
         plugin = this;
+        banner();
+        Bukkit.setSpawnRadius(0);
+        SpawnAPI.getSpawn().getWorld().getSpawnLocation();
     }
     public  void onDisable(){
 
@@ -43,6 +42,18 @@ public class Main extends JavaPlugin {
         manager.registerEvents(new JoinLeave(),this);
         manager.registerEvents(new BlockBreakPlace(),this);
         manager.registerEvents(new MobSpawn(),this);
+        manager.registerEvents(new PlayerMove(),this);
+
+    }
+    public void banner() {
+        Bukkit.getConsoleSender().sendMessage("");
+        Bukkit.getConsoleSender().sendMessage("░██████╗██╗░░██╗██╗░░░██╗██████╗░██╗░░░░░░█████╗░░█████╗░██╗░░██╗");
+        Bukkit.getConsoleSender().sendMessage("██╔════╝██║░██╔╝╚██╗░██╔╝██╔══██╗██║░░░░░██╔══██╗██╔══██╗██║░██╔╝");
+        Bukkit.getConsoleSender().sendMessage("╚█████╗░█████═╝░░╚████╔╝░██████╦╝██║░░░░░██║░░██║██║░░╚═╝█████═╝░");
+        Bukkit.getConsoleSender().sendMessage("░╚═══██╗██╔═██╗░░░╚██╔╝░░██╔══██╗██║░░░░░██║░░██║██║░░██╗██╔═██╗░");
+        Bukkit.getConsoleSender().sendMessage("██████╔╝██║░╚██╗░░░██║░░░██████╦╝███████╗╚█████╔╝╚█████╔╝██║░╚██╗");
+        Bukkit.getConsoleSender().sendMessage("╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═════╝░╚══════╝░╚════╝░░╚════╝░╚═╝░░╚═╝Reloaded");
+        Bukkit.getConsoleSender().sendMessage("v"+this.getDescription().getVersion()  +" by "+ this.getDescription().getAuthors()+" has been enabled");
     }
 
     @Override

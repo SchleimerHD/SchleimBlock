@@ -35,13 +35,16 @@ public class Island implements CommandExecutor {
 
     private void noArgs(Player p){
         String world = WorldAPI.worldNameFormat(p, World.Environment.NORMAL);
-        if (WorldAPI.worldExist(world) && Bukkit.getWorld(world) != null) {
-            WorldAPI.loadWorld(world, World.Environment.NORMAL);
-        } else if (!WorldAPI.worldExist(world)){
-
-            WorldAPI.createWorld(p, World.Environment.NORMAL);
+        World w = Bukkit.getWorld(world);
+        if (w == null){
+            if (WorldAPI.worldExist(world)){
+                w = WorldAPI.loadWorld(world, World.Environment.NORMAL);
+            }
+            else {
+                w = WorldAPI.createWorld(world, World.Environment.NORMAL);
+            }
 
         }
-        WorldAPI.teleportToPlayerIsland(p,p);
+        p.teleport(w.getSpawnLocation());
     }
 }

@@ -31,4 +31,14 @@ public class SpawnAPI {
         config.set("Spawn.Pitch",p.getLocation().getPitch());
         Main.getPlugin().saveConfig();
     }
+    public static Location getSpawn(){
+        FileConfiguration config = Main.getPlugin().getConfig();
+        World world = Bukkit.getWorld(config.getString("Spawn.World"));
+        double X = config.getDouble("Spawn.X");
+        double Y = config.getDouble("Spawn.Y");
+        double Z = config.getDouble("Spawn.Z");
+        float Yaw = (float) config.getDouble("Spawn.Yaw");
+        float Pitch = (float) config.getDouble("Spawn.Pitch");
+        return new Location(world,X,Y,Z,Yaw,Pitch);
+    }
 }
