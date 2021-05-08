@@ -1,6 +1,9 @@
 package de.schleimer.skyblockre.events;
 
 import de.schleimer.skyblockre.api.SpawnAPI;
+import de.schleimer.skyblockre.api.Tablist;
+import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,15 +18,22 @@ public class JoinLeave implements Listener {
         if (!p.hasPlayedBefore()){
             SpawnAPI.teleportToSpawn(p);
         }
+        Tablist.sendTablist(p,"Willkommen auf SkyBlock","");
+        p.sendMessage("" +
+                "§aNote: This is a §4§lin Dev§a Version of §bSky§fBlock " +
+                "\n§aThere will be many §4§lBugs §a and your progress can be gone any day" +
+                "\nWith the Full release the Progress will be permanently");
 
     }
     @EventHandler
     public void onLeave(PlayerQuitEvent e) {
         Player p = e.getPlayer();
         e.setQuitMessage("§7-§c " + p.getName());
-        if (!p.hasPlayedBefore()){
-            SpawnAPI.teleportToSpawn(p);
-
+        World w = p.getWorld();
+        System.out.println(w.getName());
+        if (w.getPlayers().isEmpty()){
+            Bukkit.getServer().unloadWorld(w,true);
+            System.gc();
         }
 
     }

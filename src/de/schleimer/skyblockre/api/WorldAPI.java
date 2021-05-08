@@ -30,9 +30,15 @@ public class WorldAPI {
         return Bukkit.createWorld(creator);                                              //Creates the World
 
     }
+    public static World loadTemplate(String p, World.Environment environment){
+        Generator n = new Generator();
+        WorldCreator creator = new WorldCreator(p).generator(n).environment(environment);
+        System.out.println("Loading world" + p);
+        return Bukkit.createWorld(creator);                                              //Creates the World
+
+    }
 
     public static String worldNameFormat (Player p, World.Environment environment){
-
         return environment.toString()+"_"+p.getUniqueId().toString();
     }
 }

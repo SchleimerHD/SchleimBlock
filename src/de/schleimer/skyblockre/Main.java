@@ -6,7 +6,9 @@ import de.schleimer.skyblockre.commands.Island;
 import de.schleimer.skyblockre.commands.SetSpawn;
 import de.schleimer.skyblockre.commands.Spawn;
 import de.schleimer.skyblockre.events.*;
+import de.schleimer.skyblockre.tabcomplete.IslandTab;
 import org.bukkit.Bukkit;
+import org.bukkit.Server;
 import org.bukkit.World;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.PluginManager;
@@ -23,8 +25,10 @@ public class Main extends JavaPlugin {
 
     public void onEnable(){
         initCommands();
+        initautocompletion();
         registerEvents();
         plugin = this;
+
         banner();
         Bukkit.setSpawnRadius(0);
         SpawnAPI.getSpawn().getWorld().getSpawnLocation();
@@ -43,7 +47,11 @@ public class Main extends JavaPlugin {
         manager.registerEvents(new BlockBreakPlace(),this);
         manager.registerEvents(new MobSpawn(),this);
         manager.registerEvents(new PlayerMove(),this);
+        manager.registerEvents(new DeaktivatCommands(),this);
 
+    }
+    public void initautocompletion(){
+        getCommand("island").setTabCompleter(new IslandTab());
     }
     public void banner() {
         Bukkit.getConsoleSender().sendMessage("");
