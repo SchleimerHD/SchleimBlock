@@ -1,8 +1,9 @@
 package de.schleimer.skyblockre.api;
 
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+
+import net.minecraft.server.v1_16_R3.IChatBaseComponent;
+import net.minecraft.server.v1_16_R3.PacketPlayOutPlayerListHeaderFooter;
+import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.lang.reflect.Field;
@@ -13,11 +14,11 @@ public class Tablist {
             Title = "";
         }
         if (subTitle == null) subTitle = "";
-
+        /*
         IChatBaseComponent tabTitle = IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + Title + "\"}");
         IChatBaseComponent tabSubTitle = IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + subTitle + "\"}");
 
-        PacketPlayOutPlayerListHeaderFooter packet = new PacketPlayOutPlayerListHeaderFooter(tabTitle);
+        PacketPlayOutPlayerListHeaderFooter packet = new PacketPlayOutPlayerListHeaderFooter(tabSubTitle);
         try {
             Field field = packet.getClass().getDeclaredField("b");
             field.setAccessible(true);
@@ -27,5 +28,7 @@ public class Tablist {
         } finally {
             ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
         }
+
+         */
     }
 }
