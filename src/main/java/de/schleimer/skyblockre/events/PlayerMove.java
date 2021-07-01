@@ -1,6 +1,5 @@
 package de.schleimer.skyblockre.events;
 
-import de.schleimer.skyblockre.api.SpawnAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
@@ -13,7 +12,6 @@ public class PlayerMove implements Listener {
         public void onPlayerMove(PlayerMoveEvent e){
             Location l = e.getPlayer().getLocation();
             if (l.getY() < 50 && l.getWorld() == Bukkit.getWorld("world")){
-                    SpawnAPI.teleportToSpawn(e.getPlayer());
             }
             else if (l.getY() <0){
                 if (e.getPlayer().getHealth()>0){

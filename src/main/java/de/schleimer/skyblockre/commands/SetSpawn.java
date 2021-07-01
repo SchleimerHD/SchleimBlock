@@ -1,6 +1,5 @@
 package de.schleimer.skyblockre.commands;
 
-import de.schleimer.skyblockre.api.SpawnAPI;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,7 +10,7 @@ public class SetSpawn implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player){
             Player p =( Player) sender;
-            SpawnAPI.setSpawn(p);
+            p.sendMessage("Sender "+ sender.getName() + "\nCommand: " + command.getName() + "\nLabel: "+ label + "\nArgs: " + args);
         }
         return false;
     }

@@ -1,4 +1,4 @@
-package de.schleimer.skyblockre.api;
+package de.schleimer.skyblockre;
 
 import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;

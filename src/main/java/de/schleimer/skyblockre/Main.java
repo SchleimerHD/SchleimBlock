@@ -1,15 +1,12 @@
 package de.schleimer.skyblockre;
 
-import de.schleimer.skyblockre.api.Generator;
-import de.schleimer.skyblockre.api.SpawnAPI;
+import de.schleimer.skyblockre.commands.Build;
 import de.schleimer.skyblockre.commands.Island;
 import de.schleimer.skyblockre.commands.SetSpawn;
 import de.schleimer.skyblockre.commands.Spawn;
 import de.schleimer.skyblockre.events.*;
 import de.schleimer.skyblockre.tabcomplete.IslandTab;
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
-import org.bukkit.World;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,10 +25,8 @@ public class Main extends JavaPlugin {
         initautocompletion();
         registerEvents();
         plugin = this;
-
         banner();
         Bukkit.setSpawnRadius(0);
-        SpawnAPI.getSpawn().getWorld().getSpawnLocation();
     }
     public  void onDisable(){
 
@@ -40,6 +35,7 @@ public class Main extends JavaPlugin {
         getCommand("is").setExecutor(new Island());
         getCommand("spawn").setExecutor(new Spawn());
         getCommand("setspawn").setExecutor(new SetSpawn());
+        getCommand("build").setExecutor(new Build());
     }
     public void registerEvents(){
         PluginManager manager = Bukkit.getPluginManager();
