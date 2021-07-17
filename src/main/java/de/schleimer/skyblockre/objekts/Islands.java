@@ -13,8 +13,8 @@ public class Islands {
 
 
     //Privat Fields
-    private static List<Islands> Inseln = new ArrayList<>();
-    private List<UUID> members = new ArrayList<>();
+    private static final List<Islands> Inseln = new ArrayList<>();
+    private final List<UUID> members = new ArrayList<>();
 
     private Player player;
     private World overworld;
@@ -94,7 +94,7 @@ public class Islands {
     //Methods
     private World creatworld(World.Environment environment){
         Generator n = new Generator();
-        WorldCreator creator = new WorldCreator(environment.toString()+"_" +player.getUniqueId().toString()).generator(n).environment(environment);
+        WorldCreator creator = new WorldCreator(environment.toString()+"_" + player.getUniqueId()).generator(n).environment(environment);
         World world = Bukkit.createWorld(creator);
         world.setSpawnLocation(0,75,0);
         Location l = world.getSpawnLocation();
@@ -104,7 +104,7 @@ public class Islands {
     }
     private World loadWorld(World.Environment environment){
         Generator n = new Generator();
-        WorldCreator creator = new WorldCreator(environment.toString()+"_" +player.getUniqueId().toString()).generator(n).environment(environment);
+        WorldCreator creator = new WorldCreator(environment.toString()+"_" + player.getUniqueId()).generator(n).environment(environment);
         return Bukkit.createWorld(creator);                                              //Creates the World
 
     }
@@ -112,14 +112,11 @@ public class Islands {
         player.teleport(overworld.getSpawnLocation());
     }
     private boolean worldExist(World.Environment environment){
-        File WorldFile = new File(Bukkit.getWorldContainer(), environment.toString()+ "_"+ player.getUniqueId().toString() );
+        File WorldFile = new File(Bukkit.getWorldContainer(), environment.toString()+ "_"+ player.getUniqueId());
         return WorldFile.exists();
     }
     public boolean ismember(Player p){
-        if (p.equals(player) || members.contains(p)){
-            return true;
-        }
-        return false;
+        return p.equals(player) || members.contains(p);
     }
 
 }

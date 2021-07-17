@@ -26,12 +26,7 @@ public class BlockBreakPlace implements Listener {
         }
         Islands is = Islands.getIslandsbyWorld(player.getWorld());
         if (is != null){
-            if(is.ismember(player)){
-                e.setCancelled(false);
-            }
-            else {
-                e.setCancelled(true);
-            }
+            e.setCancelled(!is.ismember(player));
         }
         else {
             e.setCancelled(true);

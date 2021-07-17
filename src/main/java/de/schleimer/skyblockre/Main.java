@@ -2,8 +2,6 @@ package de.schleimer.skyblockre;
 
 import de.schleimer.skyblockre.commands.Build;
 import de.schleimer.skyblockre.commands.Island;
-import de.schleimer.skyblockre.commands.SetSpawn;
-import de.schleimer.skyblockre.commands.Spawn;
 import de.schleimer.skyblockre.events.*;
 import de.schleimer.skyblockre.tabcomplete.IslandTab;
 import org.bukkit.Bukkit;
@@ -33,8 +31,7 @@ public class Main extends JavaPlugin {
     }
     public void initCommands(){
         getCommand("is").setExecutor(new Island());
-        getCommand("spawn").setExecutor(new Spawn());
-        getCommand("setspawn").setExecutor(new SetSpawn());
+        //getCommand("spawn").setExecutor(new Spawn());
         getCommand("build").setExecutor(new Build());
     }
     public void registerEvents(){

@@ -9,18 +9,12 @@ import java.util.List;
 
 public class DeaktivatCommands implements Listener {
 
-    public static List<String> Accepted= new ArrayList<>();
+    public static List<String> playercommands= new ArrayList<>();
     public void Accepted (){
-        Accepted.add("island");
-        Accepted.add("is");
-        Accepted.add("gamemode");
-        Accepted.add("gm");
-        Accepted.add("stop");
-        Accepted.add("ban");
-        Accepted.add("banlist");
-        Accepted.add("ban-ip");
-        Accepted.add("island");
-        Accepted.add("build");
+        playercommands.add("island");
+        playercommands.add("is");
+        playercommands.add("shop");
+        playercommands.add("build");
     }
     /*
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -41,18 +35,17 @@ public class DeaktivatCommands implements Listener {
         if (e.getPlayer().hasPermission("skyblock.hidden")){
             return;
         }
-        String s = e.getMessage().toString();
-        for (String command:Accepted){
-            if (s.equalsIgnoreCase("/"+command)){
+        String raw = e.getMessage();
+        String[] s = raw.toLowerCase().split(" ");
+        for (String command:playercommands){
+            if (s[0].equalsIgnoreCase("/"+command)){
                 e.setCancelled(false);
                 return;
             }
         }
         e.setCancelled(true);
+        //Performing a Dummy Command to get a real "Unkown Command Message" so any
         e.getPlayer().performCommand("fdgftdhbtrfgh");
-        return;
-
-
     }
 
 }
