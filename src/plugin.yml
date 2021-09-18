@@ -1,11 +1,18 @@
 name: SkyBlockReloaded
-author: Schleimer
+authors:
+  - Schleimer
+  - nerotvlive
 version: 1.0.0
 main: de.schleimer.skyblockre.Main
 commands:
   island:
     aliases:
       - is
+      - in
+      - insel
   spawn:
-  setspawn:
+    description: Teleports you to Spawn
   template:
+    description: Teleports you to the SkyBlock Template
+  build:
+    description: Gives you the ability to bui/ld everythere

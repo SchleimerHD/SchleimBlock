@@ -12,10 +12,12 @@ public class Build implements CommandExecutor {
     public static HashMap<Player,Boolean> builder = new HashMap<Player, Boolean>();
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        //Bukkit.getConsoleSender().sendMessage("Build Command executed");
         if (sender.hasPermission("skyblock.builder")){
             if(args.length == 0){
                 if (sender instanceof Player){
                 Player player = (Player) sender;
+                setbuilder(player);
                 }
             }
             else if (args.length == 1){

@@ -2,6 +2,8 @@ package de.schleimer.skyblockre;
 
 import de.schleimer.skyblockre.commands.Build;
 import de.schleimer.skyblockre.commands.Island;
+import de.schleimer.skyblockre.commands.Spawn;
+import de.schleimer.skyblockre.commands.Warp;
 import de.schleimer.skyblockre.events.*;
 import de.schleimer.skyblockre.tabcomplete.IslandTab;
 import org.bukkit.Bukkit;
@@ -25,13 +27,16 @@ public class Main extends JavaPlugin {
         plugin = this;
         banner();
         Bukkit.setSpawnRadius(0);
+        if(MySQL.getMySQL().isConnected()){
+            Bukkit.getConsoleSender().sendMessage("Ist immer noch verbunden");
+        }
     }
     public  void onDisable(){
 
     }
     public void initCommands(){
         getCommand("is").setExecutor(new Island());
-        //getCommand("spawn").setExecutor(new Spawn());
+        getCommand("spawn").setExecutor(new Spawn());
         getCommand("build").setExecutor(new Build());
     }
     public void registerEvents(){

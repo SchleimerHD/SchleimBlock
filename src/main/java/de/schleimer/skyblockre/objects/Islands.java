@@ -1,4 +1,4 @@
-package de.schleimer.skyblockre.objekts;
+package de.schleimer.skyblockre.objects;
 
 import de.schleimer.skyblockre.Generator;
 import org.bukkit.*;
@@ -87,10 +87,6 @@ public class Islands {
     }
     private Islands(){
     }
-    protected void finalize(){
-
-    }
-
     //Methods
     private World creatworld(World.Environment environment){
         Generator n = new Generator();

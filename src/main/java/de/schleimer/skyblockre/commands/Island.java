@@ -1,6 +1,6 @@
 package de.schleimer.skyblockre.commands;
 
-import de.schleimer.skyblockre.objekts.Islands;
+import de.schleimer.skyblockre.objects.Islands;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
