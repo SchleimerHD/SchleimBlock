@@ -3,7 +3,7 @@ This Projekt is work in Progress
 
 This Project aims to Provide basic SkyBlock mechanics like
 
-- [x] Basic Floating Island by Creating a wholw new World per Player
+- [ ] https://github.com/SchleimerHD/SchleimBlock/issues/1
 - [ ] Cobble Gerenrator generating varios Blocks like Cobblestone,Goldore,Ironore,Bronze,and also Diamonds
 - [ ] Randomly gereating new Bonus Islands
 - [ ] SkyBlock Shop (Official/User)
